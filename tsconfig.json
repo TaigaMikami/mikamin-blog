@@ -20,7 +20,7 @@
       "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
       "@/libs/*": ["libs/*"],
-      "@/css/*": ["css/*"],
+      "@/styles/*": ["styles/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
