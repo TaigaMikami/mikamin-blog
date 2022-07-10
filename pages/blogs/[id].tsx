@@ -1,12 +1,27 @@
 // pages/blog/[id].js
+import PageTitle from '@/components/PageTitle'
+import formatDate from '@/utils/fotmatDate'
 import { client } from '../../libs/client'
 import styles from '../../styles/Home.module.scss'
 
 export default function BlogId({ blog }: { blog: any }) {
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>{blog.title}</h1>
-      <p className={styles.publishedAt}>{blog.publishedAt}</p>
+      <header className="pt-6 xl:pb-6">
+        <div className="space-y-1 text-center">
+          <dl className="space-y-10">
+            <div>
+              <dt className="sr-only">Published on</dt>
+              <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                <time dateTime={blog.publishedAt}>{formatDate(blog.publishedAt)}</time>
+              </dd>
+            </div>
+          </dl>
+          <div>
+            <PageTitle>{blog.title}</PageTitle>
+          </div>
+        </div>
+      </header>
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.content}`,
