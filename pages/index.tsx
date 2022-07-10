@@ -1,6 +1,7 @@
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
-import { client } from '../libs/client'
+import { client } from '@/libs/client'
+import formatDate from '@/utils/fotmatDate'
 
 export default function Home({ blog }: { blog: any }) {
   return (
@@ -24,7 +25,7 @@ export default function Home({ blog }: { blog: any }) {
                     <dl>
                       <dt className="sr-only">Published on</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={publishedAt}>{publishedAt}</time>
+                        <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>
                       </dd>
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
