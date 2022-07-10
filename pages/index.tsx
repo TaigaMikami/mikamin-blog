@@ -3,6 +3,7 @@ import Tag from '@/components/Tag'
 import siteMetaData from '@/data/siteMetaData'
 import { client } from '@/libs/client'
 import formatDate from '@/utils/fotmatDate'
+import { Blog } from 'types/blog'
 
 export default function Home({ blog }: { blog: any }) {
   return (
@@ -17,8 +18,8 @@ export default function Home({ blog }: { blog: any }) {
           </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {blog.map((blog: any) => {
-            const { id, title, content, eyecatch, category, publishedAt } = blog
+          {blog.map((blog: Blog) => {
+            const { id, title, category, publishedAt } = blog
             return (
               <li key={id} className="py-12">
                 <article>
@@ -40,11 +41,11 @@ export default function Home({ blog }: { blog: any }) {
                               {title}
                             </Link>
                           </h2>
-                          {/* <div className="flex flex-wrap">
-                          {category.map((tag) => (
-                            <Tag key={tag} text={tag} />
-                          ))}
-                        </div> */}
+                          <div className="flex flex-wrap">
+                            {category.map((tag) => (
+                              <Tag key={tag.id} text={tag.name} />
+                            ))}
+                          </div>
                         </div>
                         {/* <div className="prose max-w-none text-gray-500 dark:text-gray-400">
                         {summary}
